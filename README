@@ -1,0 +1,44 @@
+prelude-safeenum
+================
+
+This is a very simple package and should be easy to install. You
+should be able to use any of the following standard methods to
+install it.
+
+    -- With cabal-install and without the source:
+    $> cabal install prelude-safeenum
+    
+    -- With cabal-install and with the source already:
+    $> cd prelude-safeenum
+    $> cabal install
+    
+    -- Without cabal-install, but with the source already:
+    $> cd prelude-safeenum
+    $> runhaskell Setup.hs configure --user
+    $> runhaskell Setup.hs build
+    $> runhaskell Setup.hs test
+    $> runhaskell Setup.hs haddock --hyperlink-source
+    $> runhaskell Setup.hs copy
+    $> runhaskell Setup.hs register
+
+The test step is optional and currently does nothing. The Haddock
+step is also optional.
+
+
+Portability
+===========
+
+An attempt has been made to keep this library portable; however,
+it does rely on a few language extensions. All the required language
+extensions are:
+
+    CPP
+    GeneralizedNewtypeDeriving
+    MagicHash  -- only needed by GHC.
+
+The GeneralizedNewtypeDeriving extension is used for brevity in
+Data.Number.CalkinWilf. If you'd like to use this package with a
+compiler that does not support that extension, contact the maintainer
+and it can be removed.
+
+----------------------------------------------------------- fin.
