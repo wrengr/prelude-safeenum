@@ -1,14 +1,18 @@
 {-# OPTIONS_GHC -Wall -fwarn-tabs #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE CPP, GeneralizedNewtypeDeriving #-}
+#if __GLASGOW_HASKELL__ >= 701
+-- N.B., GeneralizedNewtypeDeriving isn't "safe".
+{-# LANGUAGE Trustworthy #-}
+#endif
 ----------------------------------------------------------------
---                                                    2013.05.12
+--                                                    2013.05.29
 -- |
 -- Module      :  Data.Number.CalkinWilf
 -- Copyright   :  2012--2013 wren ng thornton
 -- License     :  BSD3
 -- Maintainer  :  wren@community.haskell.org
--- Stability   :  experimental
--- Portability :  Haskell98 + GeneralizedNewtypeDeriving
+-- Stability   :  provisional
+-- Portability :  Haskell98 + CPP + GeneralizedNewtypeDeriving
 --
 -- Enumerate the rationals in Calkin--Wilf order.
 --

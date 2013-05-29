@@ -1,14 +1,19 @@
--- We use -XMagicHash instead of the LANGUAGE pragma since we can't CPP-guard
+-- We use -XMagicHash instead of the LANGUAGE pragma since we can't
+-- CPP-guard language extensions on older versions of GHC.
 {-# OPTIONS_GHC -Wall -fwarn-tabs -XMagicHash #-}
 {-# LANGUAGE CPP #-}
+#if __GLASGOW_HASKELL__ >= 701
+-- N.B., GHC.Exts isn't "safe".
+{-# LANGUAGE Trustworthy #-}
+#endif
 ----------------------------------------------------------------
---                                                    2013.05.12
+--                                                    2013.05.29
 -- |
 -- Module      :  Prelude.SafeEnum
 -- Copyright   :  2012--2013 wren ng thornton
 -- License     :  BSD3
 -- Maintainer  :  wren@community.haskell.org
--- Stability   :  experimental
+-- Stability   :  provisional
 -- Portability :  Haskell98 + CPP (+ MagicHash)
 --
 -- A redefinition of the "Prelude"\'s 'Prelude.Enum' class in order

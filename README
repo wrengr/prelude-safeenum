@@ -34,11 +34,17 @@ extensions are:
 
     CPP
     GeneralizedNewtypeDeriving
-    MagicHash  -- only needed by GHC.
+    MagicHash    -- only for GHC
+    Trustworthy  -- only for GHC >= 7.1
 
 The GeneralizedNewtypeDeriving extension is used for brevity in
 Data.Number.CalkinWilf. If you'd like to use this package with a
 compiler that does not support that extension, contact the maintainer
 and it can be removed.
+
+This package is only "Trustworthy" rather than "Safe" for two
+reasons: (1) Data.Number.CalkinWilf uses GeneralizedNewtypeDeriving,
+and (2) Prelude.SafeEnum imports GHC.Exts for build/foldr fusion
+and for the Char instances.
 
 ----------------------------------------------------------- fin.
