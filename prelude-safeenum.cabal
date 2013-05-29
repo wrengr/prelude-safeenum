@@ -17,7 +17,7 @@ Copyright:      Copyright (c) 2012--2013 wren ng thornton
 License:        BSD3
 License-File:   LICENSE
 
-Category:       Data
+Category:       Prelude
 Synopsis:
     A redefinition of the Prelude's Enum class in order to render it safe.
 Description:
