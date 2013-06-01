@@ -7,7 +7,7 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2013.05.29
+--                                                    2013.06.01
 -- |
 -- Module      :  Prelude.SafeEnum
 -- Copyright   :  2012--2013 wren ng thornton
@@ -36,10 +36,11 @@
 -- ensure that the notion of enumeration (in either direction) is
 -- well-defined, which rules out instances for 'Float' and 'Double',
 -- and renders instances for 'Ratio' problematic. 'Ratio' instances
--- /can/ be provided so long as the base type is enumerable (and
--- 'Integral', naturally); but they must be done in an obscure
--- order[2] that does not coincide with 'Ord', which is not what
--- people expect.
+-- /can/ be provided so long as the base type is integral and
+-- enumerable; but they must be done in an obscure order[2] that
+-- does not coincide with 'Ord'. Since this is not what people may
+-- expect, we only provide an instance for the newtype 'CalkinWilf',
+-- not for 'Ratio' itself.
 --
 -- The @MagicHash@ extension is only actually required if on GHC.
 -- This extension is used only so that the implementation of the
@@ -75,9 +76,13 @@ infix 4 `precedes`, `succeeds`
 
 ----------------------------------------------------------------
 -- | A class for upward enumerable types. That is, we can enumerate
--- larger and larger values, eventually getting all of them. We
--- require that 'succeeds' forms a strict partial order. That is,
--- it must obey the following laws (N.B., if the first two laws
+-- larger and larger values, eventually getting every one of them;
+-- i.e., given any @x@, for all @y@ such that @y \`succeeds\` x@,
+-- it must be the case that @y@ occurs within some finite prefix
+-- of @enumFrom x@.
+--
+-- We require that 'succeeds' forms a strict partial order. That
+-- is, it must obey the following laws (N.B., if the first two laws
 -- hold, then the third one follows for free):
 --
 -- > if x `succeeds` y && y `succeeds` z then x `succeeds` z
@@ -153,9 +158,13 @@ class UpwardEnum a where
 
 ----------------------------------------------------------------
 -- | A class for downward enumerable types. That is, we can enumerate
--- smaller and smaller values, eventually getting all of them. We
--- require that 'precedes' forms a strict partial order. That is,
--- it must obey the following laws (N.B., if the first two laws
+-- smaller and smaller values, eventually getting every one of them;
+-- i.e., given any @x@, for all @y@ such that @y \`precedes\` x@,
+-- it must be the case that @y@ occurs within some finite prefix
+-- of @enumDownFrom x@.
+--
+-- We require that 'precedes' forms a strict partial order. That
+-- is, it must obey the following laws (N.B., if the first two laws
 -- hold, then the third one follows for free):
 --
 -- > if x `precedes` y && y `precedes` z then x `precedes` z

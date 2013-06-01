@@ -5,7 +5,7 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2013.05.29
+--                                                    2013.06.01
 -- |
 -- Module      :  Data.Number.CalkinWilf
 -- Copyright   :  2012--2013 wren ng thornton
@@ -14,7 +14,14 @@
 -- Stability   :  provisional
 -- Portability :  Haskell98 + CPP + GeneralizedNewtypeDeriving
 --
--- Enumerate the rationals in Calkin--Wilf order.
+-- Enumerate the rationals in Calkin--Wilf order. That is, when we
+-- give enumeration a well-specified meaning (as "Prelude.SafeEnum"
+-- does) this renders instances for 'Ratio' problematic. 'Ratio'
+-- instances /can/ be provided so long as the base type is integral
+-- and enumerable; but they must be done in an obscure order that
+-- does not coincide with the 'Ord' instance for 'Ratio'. Since
+-- this is not what people may expect, we only provide an instance
+-- for the newtype 'CalkinWilf', not for 'Ratio' itself.
 --
 --   * Jeremy Gibbons, David Lester, and Richard Bird (2006).
 --     /Enumerating the Rationals/. JFP 16(3):281--291.
