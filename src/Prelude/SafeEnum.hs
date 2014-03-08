@@ -7,7 +7,7 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2013.06.01
+--                                                    2014.03.07
 -- |
 -- Module      :  Prelude.SafeEnum
 -- Copyright   :  2012--2013 wren ng thornton
@@ -65,7 +65,12 @@ import Prelude hiding (Enum(..))
 import qualified Prelude (Enum(..))
 
 #ifdef __GLASGOW_HASKELL__
-import GHC.Exts (build, Int(I#), Char(C#), ord#, chr#, (==#), (<=#), (+#), (-#), leChar#)
+#   if __GLASGOW_HASKELL__ >= 708
+import GHC.Exts (isTrue#, (/=#))
+#   else
+import GHC.Exts ((==#))
+#   endif
+import GHC.Exts (build, Int(I#), Char(C#), ord#, chr#, (<=#), (+#), (-#), leChar#)
 #else
 import Data.Char (chr, ord)
 #endif
@@ -483,7 +488,12 @@ instance Enum Ordering where
 
 ----------------------------------------------------------------
 instance UpwardEnum Char where
-#ifdef __GLASGOW_HASKELL__
+#if __GLASGOW_HASKELL__ >= 708
+    succ (C# c#)
+        | isTrue# (ord# c# /=# 0x10FFFF#)
+                    = Just $! C# (chr# (ord# c# +# 1#))
+        | otherwise = Nothing
+#elif defined __GLASGOW_HASKELL__
     succ (C# c#)
         | not (ord# c# ==# 0x10FFFF#) = Just $! C# (chr# (ord# c# +# 1#))
         | otherwise                   = Nothing
@@ -501,7 +511,12 @@ instance UpwardEnum Char where
     {-# INLINE enumFromTo #-}
 
 instance DownwardEnum Char where
-#ifdef __GLASGOW_HASKELL__
+#if __GLASGOW_HASKELL__ >= 708
+    pred (C# c#)
+        | isTrue# (ord# c# /=# 0#)
+                    = Just $! C# (chr# (ord# c# -# 1#))
+        | otherwise = Nothing
+#elif defined __GLASGOW_HASKELL__
     pred (C# c#)
         | not (ord# c# ==# 0#) = Just $! C# (chr# (ord# c# -# 1#))
         | otherwise            = Nothing
@@ -519,7 +534,16 @@ instance DownwardEnum Char where
     {-# INLINE enumDownFromTo #-}
 
 instance Enum Char where
-#ifdef __GLASGOW_HASKELL__
+#if __GLASGOW_HASKELL__ >= 708
+    toEnum (I# i#)
+        | isTrue# (0# <=# i#)
+            && isTrue# (i# <=# 0x10FFFF#) = Just $! C# (chr# i#)
+        | otherwise                       = Nothing
+    fromEnum (C# c#)
+        | isTrue# (leChar# (chr# 0#) c#)
+            && isTrue# (leChar# c# (chr# 0x10FFFF#)) = Just $! I# (ord# c#)
+        | otherwise                                  = Nothing
+#elif defined __GLASGOW_HASKELL__
     toEnum (I# i#)
         | 0# <=# i# && i# <=# 0x10FFFF# = Just $! C# (chr# i#)
         | otherwise                     = Nothing

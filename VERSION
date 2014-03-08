@@ -1,3 +1,5 @@
+0.1.1 (2013.03.07):
+    - Prelude.SafeEnum: corrected the Char instance for GHC 7.8
 0.1.0.1 (2013.06.01):
     - Documentation changes.
 0.1.0 (2013.05.29):
