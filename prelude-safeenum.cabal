@@ -1,5 +1,5 @@
 ----------------------------------------------------------------
--- wren ng thornton <wren@community.haskell.org>    ~ 2014.03.07
+-- wren ng thornton <wren@community.haskell.org>    ~ 2014.03.30
 ----------------------------------------------------------------
 
 -- By and large Cabal >=1.2 is fine; but >= 1.6 gives tested-with:
@@ -8,7 +8,7 @@ Cabal-Version:  >= 1.6
 Build-Type:     Simple
 
 Name:           prelude-safeenum
-Version:        0.1.1
+Version:        0.1.1.1
 Stability:      provisional
 Homepage:       http://code.haskell.org/~wren/
 Author:         wren ng thornton
@@ -30,7 +30,7 @@ Description:
     direction.
 
 Tested-With:
-    GHC ==6.12.1, GHC ==7.6.1, GHC ==7.8.2
+    GHC ==6.12.1, GHC ==7.6.1, GHC ==7.8.0
 Extra-source-files:
     AUTHORS, README, VERSION
 Source-Repository head
