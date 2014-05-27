@@ -8,7 +8,7 @@
 --                                                    2013.06.01
 -- |
 -- Module      :  Data.Number.CalkinWilf
--- Copyright   :  2012--2013 wren ng thornton
+-- Copyright   :  2012--2013 wren gayle romano
 -- License     :  BSD3
 -- Maintainer  :  wren@community.haskell.org
 -- Stability   :  provisional
