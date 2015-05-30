@@ -10,7 +10,7 @@
 --                                                    2014.03.07
 -- |
 -- Module      :  Prelude.SafeEnum
--- Copyright   :  2012--2013 wren gayle romano
+-- Copyright   :  2012--2015 wren gayle romano
 -- License     :  BSD3
 -- Maintainer  :  wren@community.haskell.org
 -- Stability   :  provisional
