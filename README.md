@@ -5,9 +5,13 @@ prelude-safeenum
 [![TravisCI Build Status](https://img.shields.io/travis/wrengr/prelude-safeenum.svg?style=flat)](https://travis-ci.org/wrengr/prelude-safeenum) 
 [![CircleCI Build Status](https://circleci.com/gh/wrengr/prelude-safeenum.svg?style=shield&circle-token=b57517657c556be6fd8fca92b843f9e4cffaf8d1)](https://circleci.com/gh/wrengr/prelude-safeenum)
 
-An alternative to the Prelude's `Enum` class which is safe/total
-and better captures distinctions like upward vs downward enumerability.
-
+A redefinition of the Prelude's `Enum` class in order to render it
+safe. That is, the Haskell Language Report defines `pred`, `succ`,
+`fromEnum`, and `toEnum` to be partial functions when the type is
+`Bounded`. This is unacceptable. We define a new type-class hierarchy
+for enumeration which is safe and also generalizes to cover types
+which can only be enumerated in one direction.
+    
 
 ## Install
 
