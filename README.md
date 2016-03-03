@@ -1,5 +1,15 @@
 prelude-safeenum
 ================
+[![Hackage version](https://img.shields.io/hackage/v/prelude-safeenum.svg?style=flat)](https://hackage.haskell.org/package/prelude-safeenum) 
+[![Hackage-Deps](https://img.shields.io/hackage-deps/v/prelude-safeenum.svg?style=flat)](http://packdeps.haskellers.com/specific?package=prelude-safeenum)
+[![TravisCI Build Status](https://img.shields.io/travis/wrengr/prelude-safeenum.svg?style=flat)](https://travis-ci.org/wrengr/prelude-safeenum) 
+[![CircleCI Build Status](https://circleci.com/gh/wrengr/prelude-safeenum.svg?style=shield&circle-token=b57517657c556be6fd8fca92b843f9e4cffaf8d1)](https://circleci.com/gh/wrengr/prelude-safeenum)
+
+An alternative to the Prelude's `Enum` class which is safe/total
+and better captures distinctions like upward vs downward enumerability.
+
+
+## Install
 
 This is a very simple package and should be easy to install. You
 should be able to use any of the following standard methods to
@@ -25,17 +35,16 @@ The test step is optional and currently does nothing. The Haddock
 step is also optional.
 
 
-Portability
-===========
+## Portability
 
 An attempt has been made to keep this library portable; however,
 it does rely on a few language extensions. All the required language
 extensions are:
 
-    CPP
-    GeneralizedNewtypeDeriving
-    MagicHash    -- only for GHC
-    Trustworthy  -- only for GHC >= 7.1
+* CPP
+* GeneralizedNewtypeDeriving
+* MagicHash - only for GHC
+* Trustworthy - only for GHC >= 7.1
 
 The GeneralizedNewtypeDeriving extension is used for brevity in
 Data.Number.CalkinWilf. If you'd like to use this package with a
@@ -47,4 +56,14 @@ reasons: (1) Data.Number.CalkinWilf uses GeneralizedNewtypeDeriving,
 and (2) Prelude.SafeEnum imports GHC.Exts for build/foldr fusion
 and for the Char instances.
 
------------------------------------------------------------ fin.
+
+## Links
+
+* [Website](http://cl.indiana.edu/~wren/)
+* [Blog](http://winterkoninkje.dreamwidth.org/)
+* [Twitter](https://twitter.com/wrengr)
+* [Hackage](http://hackage.haskell.org/package/prelude-safeenum)
+* [Darcs](http://code.haskell.org/~wren/prelude-safeenum)
+* [GitHub (clone)](https://github.com/wrengr/prelude-safeenum)
+* [Haddock (Darcs version)
+    ](http://code.haskell.org/~wren/prelude-safeenum/dist/doc/html/prelude-safeenum)
