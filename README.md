@@ -62,11 +62,8 @@ and for the Char instances.
 
 ## Links
 
-* [Website](http://cl.indiana.edu/~wren/)
+* [Website](http://wrengr.org)
 * [Blog](http://winterkoninkje.dreamwidth.org/)
 * [Twitter](https://twitter.com/wrengr)
 * [Hackage](http://hackage.haskell.org/package/prelude-safeenum)
-* [Darcs](http://code.haskell.org/~wren/prelude-safeenum)
-* [GitHub (clone)](https://github.com/wrengr/prelude-safeenum)
-* [Haddock (Darcs version)
-    ](http://code.haskell.org/~wren/prelude-safeenum/dist/doc/html/prelude-safeenum)
+* [GitHub](https://github.com/wrengr/prelude-safeenum)
