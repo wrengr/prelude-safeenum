@@ -1,9 +1,8 @@
 prelude-safeenum
 ================
 [![Hackage version](https://img.shields.io/hackage/v/prelude-safeenum.svg?style=flat)](https://hackage.haskell.org/package/prelude-safeenum) 
-[![Hackage-Deps](https://img.shields.io/hackage-deps/v/prelude-safeenum.svg?style=flat)](http://packdeps.haskellers.com/specific?package=prelude-safeenum)
-[![TravisCI Build Status](https://img.shields.io/travis/wrengr/prelude-safeenum.svg?style=flat)](https://travis-ci.org/wrengr/prelude-safeenum) 
-[![CircleCI Build Status](https://circleci.com/gh/wrengr/prelude-safeenum.svg?style=shield&circle-token=b57517657c556be6fd8fca92b843f9e4cffaf8d1)](https://circleci.com/gh/wrengr/prelude-safeenum)
+[![Build Status](https://github.com/wrengr/prelude-safeenum/workflows/ci/badge.svg)](https://github.com/wrengr/prelude-safeenum/actions?query=workflow%3Aci)
+[![Dependencies](https://img.shields.io/hackage-deps/v/prelude-safeenum.svg?style=flat)](http://packdeps.haskellers.com/specific?package=prelude-safeenum)
 
 A redefinition of the Prelude's `Enum` class in order to render it
 safe. That is, the Haskell Language Report defines `pred`, `succ`,
