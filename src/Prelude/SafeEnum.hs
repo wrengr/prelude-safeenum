@@ -7,10 +7,10 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2014.03.07
+--                                                    2021.10.16
 -- |
 -- Module      :  Prelude.SafeEnum
--- Copyright   :  2012--2015 wren gayle romano
+-- Copyright   :  2012--2021 wren gayle romano
 -- License     :  BSD3
 -- Maintainer  :  wren@community.haskell.org
 -- Stability   :  provisional
@@ -35,12 +35,13 @@
 -- it's advisable that they do (for your sanity). However, we also
 -- ensure that the notion of enumeration (in either direction) is
 -- well-defined, which rules out instances for 'Float' and 'Double',
--- and renders instances for 'Ratio' problematic. 'Ratio' instances
--- /can/ be provided so long as the base type is integral and
--- enumerable; but they must be done in an obscure order[2] that
--- does not coincide with 'Ord'. Since this is not what people may
--- expect, we only provide an instance for the newtype 'CalkinWilf',
--- not for 'Ratio' itself.
+-- and renders instances for 'Data.Ratio.Ratio' problematic.
+-- 'Data.Ratio.Ratio' instances /can/ be provided so long as the
+-- base type is integral and enumerable; but they must be done in
+-- an obscure order[2] that does not coincide with 'Ord'. Since
+-- this is not what people may expect, we only provide an instance
+-- for the newtype 'Data.Number.CalkinWilf.CalkinWilf', not for
+-- 'Data.Ratio.Ratio' itself.
 --
 -- The @MagicHash@ extension is only actually required if on GHC.
 -- This extension is used only so that the implementation of the
