@@ -1,6 +1,6 @@
 prelude-safeenum
 ================
-[![Hackage version](https://img.shields.io/hackage/v/prelude-safeenum.svg?style=flat)](https://hackage.haskell.org/package/prelude-safeenum) 
+[![Hackage version](https://img.shields.io/hackage/v/prelude-safeenum.svg?style=flat)](https://hackage.haskell.org/package/prelude-safeenum)
 [![Build Status](https://github.com/wrengr/prelude-safeenum/workflows/ci/badge.svg)](https://github.com/wrengr/prelude-safeenum/actions?query=workflow%3Aci)
 [![Dependencies](https://img.shields.io/hackage-deps/v/prelude-safeenum.svg?style=flat)](http://packdeps.haskellers.com/specific?package=prelude-safeenum)
 
@@ -10,32 +10,14 @@ safe. That is, the Haskell Language Report defines `pred`, `succ`,
 `Bounded`. This is unacceptable. We define a new type-class hierarchy
 for enumeration which is safe and also generalizes to cover types
 which can only be enumerated in one direction.
-    
+
 
 ## Install
 
 This is a very simple package and should be easy to install. You
-should be able to use any of the following standard methods to
-install it.
+should be able to use the standard:
 
-    -- With cabal-install and without the source:
     $> cabal install prelude-safeenum
-    
-    -- With cabal-install and with the source already:
-    $> cd prelude-safeenum
-    $> cabal install
-    
-    -- Without cabal-install, but with the source already:
-    $> cd prelude-safeenum
-    $> runhaskell Setup.hs configure --user
-    $> runhaskell Setup.hs build
-    $> runhaskell Setup.hs test
-    $> runhaskell Setup.hs haddock --hyperlink-source
-    $> runhaskell Setup.hs copy
-    $> runhaskell Setup.hs register
-
-The test step is optional and currently does nothing. The Haddock
-step is also optional.
 
 
 ## Portability
