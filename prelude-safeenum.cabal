@@ -49,23 +49,12 @@ Source-Repository head
     Location: https://github.com/wrengr/prelude-safeenum.git
 
 ----------------------------------------------------------------
-Flag base4
-    Default:     True
-    Description: base-4.0 emits "Prelude deprecated" messages in
-                 order to get people to be explicit about which
-                 version of base they use.
-----------------------------------------------------------------
 Library
     Default-Language:  Haskell2010
     Hs-Source-Dirs:    src
     Exposed-Modules:   Prelude.SafeEnum
                      , Data.Number.CalkinWilf
-
-    -- I think this is all that needs doing to get rid of the warnings?
-    if flag(base4)
-        Build-Depends: base >= 4 && < 5
-    else
-        Build-Depends: base < 4
+    Build-Depends: base >= 4 && < 5
 
 ----------------------------------------------------------------
 ----------------------------------------------------------- fin.
