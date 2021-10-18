@@ -7,12 +7,12 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2021.10.16
+--                                                    2021.10.17
 -- |
 -- Module      :  Prelude.SafeEnum
 -- Copyright   :  2012--2021 wren gayle romano
 -- License     :  BSD3
--- Maintainer  :  wren@community.haskell.org
+-- Maintainer  :  wren@cpan.org
 -- Stability   :  provisional
 -- Portability :  Haskell98 + CPP (+ MagicHash)
 --

@@ -5,12 +5,12 @@
 {-# LANGUAGE Trustworthy #-}
 #endif
 ----------------------------------------------------------------
---                                                    2013.06.01
+--                                                    2021.10.17
 -- |
 -- Module      :  Data.Number.CalkinWilf
--- Copyright   :  2012--2015 wren gayle romano
+-- Copyright   :  2012--2021 wren gayle romano
 -- License     :  BSD3
--- Maintainer  :  wren@community.haskell.org
+-- Maintainer  :  wren@cpan.org
 -- Stability   :  provisional
 -- Portability :  Haskell98 + CPP + GeneralizedNewtypeDeriving
 --
@@ -102,7 +102,7 @@ cw2bits (CalkinWilf q) = snd (igcd (numerator q) (denominator q))
 igcd :: Integral a => a -> a -> (a,[Bool])
 {-# SPECIALIZE igcd :: Integer -> Integer -> (Integer,[Bool]) #-}
 igcd 0 0 = (0,[])
-igcd m n 
+igcd m n
     | m < 0 || n < 0 = error "igcd is undefined on negative arguments"
     | otherwise =
         case compare m n of
