@@ -6,18 +6,18 @@ Cabal-Version:  2.2
 --    <https://github.com/haskell/cabal/issues/4899>
 
 ----------------------------------------------------------------
--- wren gayle romano <wren@cpan.org>                ~ 2022.08.28
+-- wren gayle romano <wren@cpan.org>                ~ 2023.03.19
 ----------------------------------------------------------------
 
 Name:           prelude-safeenum
-Version:        0.1.1.5
+Version:        0.1.1.6
 Build-Type:     Simple
 Stability:      provisional
 Homepage:       https://wrengr.org/software/hackage.html
 Bug-Reports:    https://github.com/wrengr/prelude-safeenum/issues
 Author:         wren gayle romano
 Maintainer:     wren@cpan.org
-Copyright:      2012–2022 wren romano
+Copyright:      2012–2023 wren romano
 -- Cabal-2.2 requires us to say "BSD-3-Clause" not "BSD3"
 License:        BSD-3-Clause
 License-File:   LICENSE
@@ -48,7 +48,8 @@ Tested-With:
     GHC ==8.10.3,
     GHC ==9.0.1,
     GHC ==9.2.4,
-    GHC ==9.4.1
+    GHC ==9.4.4,
+    GHC ==9.6.1
 
 ----------------------------------------------------------------
 Source-Repository head
